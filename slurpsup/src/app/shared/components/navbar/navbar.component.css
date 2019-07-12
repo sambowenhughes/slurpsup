@@ -1,0 +1,6 @@
+.hero {
+    background-image: url("../../../../assets/banner.svg"); 
+    background-color: #cccccc; 
+    height: 135px;
+    background-size: cover;
+  }
