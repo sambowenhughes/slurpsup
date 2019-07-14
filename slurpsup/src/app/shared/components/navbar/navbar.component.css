@@ -1,6 +1,13 @@
 .hero {
-    background-image: url("../../../../assets/banner.svg"); 
+    background-image: url("../../../../assets/banner2.svg"); 
     background-color: #cccccc; 
-    height: 135px;
+    height: 105px;
+    background-size: cover;
+  }
+
+  .hero-desktop {
+    background-image: url("../../../../assets/banner2.svg"); 
+    background-color: #cccccc; 
+    height: 200px;
     background-size: cover;
   }
