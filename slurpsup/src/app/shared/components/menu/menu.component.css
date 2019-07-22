@@ -1,0 +1,29 @@
+.button-menu {
+    border-radius: 100px;
+    background-color: #219cee;
+    border: 2px solid #219cee;
+    position: fixed;
+    right: 0;
+    top: 90%;
+    margin-right: 5%;
+    z-index: 5;
+    font-size: 30px;
+    font-weight: 50;
+    
+}
+svg{
+    color: #f4d250;
+}
+
+.header-background{
+    background-image: url("../../../../assets/modal-banner.svg"); 
+    background-color: #cccccc; 
+    background-size: cover;
+}
+
+.footer-background{
+    background-image: url("../../../../assets/modal-footer.svg"); 
+    background-color: #cccccc; 
+    background-size: cover;
+}
+

@@ -1,0 +1,121 @@
+<a class="button button-menu is-large is-pulled-right" (click)="toggleModal()">
+    <span class="icon is-large">
+        <i class="fas fa-wine-glass-alt"></i>
+    </span>
+</a>    
+
+<div class="modal" [ngClass]="{'is-active': modalActive }">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+      <header class="modal-card-head header-background">
+        <p class="modal-card-title"></p>
+        <button class="delete" aria-label="close" (click)="toggleModal()"></button>
+      </header>
+      <section class="modal-card-body">
+        <div class="field is-horizontal">
+          <div class="field-label is-normal">
+            <label class="label">Leave your review:</label>
+          </div>
+          <div class="field-body">
+            <div class="field">
+              <p class="control is-expanded">
+                <input class="input" type="number" placeholder="How well did the drink tase?">
+              </p>
+            </div>
+            Taste: <progress class="progress is-primary" value="40" max="100">10%</progress>
+            <div class="field">
+              <p class="control is-expanded">
+                <input class="input" type="number" placeholder="How well priced was the drink?">
+              </p>
+            </div>
+            Price:<progress class="progress is-primary" value="40" max="100">10%</progress>
+            <div class="field">
+              <p class="control is-expanded">
+                <input class="input" type="number" placeholder="How well packaged was the drink?">
+              </p>
+            </div>
+            Look and feel:<progress class="progress is-primary" value="40" max="100">10%</progress>
+          </div>
+        </div>
+
+        <hr>
+
+        <div class="field">
+          <div class="field-label is-normal">
+              <label class="label">Upload Image of your drink</label>
+          </div>
+          
+          <div class="file has-name is-right is-info">
+            <label class="file-label">
+              <input class="file-input" type="file" name="resume">
+              <span class="file-cta">
+                <span class="file-icon">
+                  <i class="fas fa-upload"></i>
+                </span>
+                <span class="file-label">
+                  Upload Pic
+                </span>
+              </span>
+              <span class="file-name">
+                Screen Shot 2017-07-29 at 15.54.25.png
+              </span>
+            </label>
+          </div>
+        </div>
+
+        <div class="field is-horizontal">
+          <div class="field-label is-normal">
+            <label class="label">Added Notes</label>
+          </div>
+          <div class="field-body">
+            <div class="field">
+              <div class="control">
+                <textarea class="textarea" placeholder="Please add any other feelings you have about this drink"></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="field is-horizontal">
+            <div class="field-label is-normal">
+              <label class="label">Reviewer</label>
+            </div>
+            <div class="field-body">
+              <div class="field is-narrow">
+                <div class="control">
+                  <div class="select is-fullwidth">
+                    <select>
+                      <option>Please select a name</option>
+                      <option>Sam Bowen-Hughes</option>
+                      <option>Maher Dulayymi</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+        
+        
+        <div class="field is-horizontal">
+          <div class="field-label">
+            <!-- Left empty for spacing -->
+          </div>
+          <div class="field-body">
+            <div class="field">
+              <div class="control">
+                  <button class="button is-danger" (click)="toggleModal()">Cancel</button>
+                <button class="button is-primary" (click)="toggleModal()">Save changes</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <footer class="modal-card-foot footer-background">
+       
+      </footer>
+    </div>
+  </div>  
+
