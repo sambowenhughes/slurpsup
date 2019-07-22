@@ -15,9 +15,9 @@ export class DashboardComponent implements OnInit {
     this.juices.push("Hello");
     this.juices.push("Hello");
     this.juices.push("Hello");
-
-
-
+    this.juices.push("Hello");
+    this.juices.push("Hello");
+    this.juices.push("Hello");
   }
 
 }

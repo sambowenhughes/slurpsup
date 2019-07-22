@@ -12,40 +12,28 @@
         <button class="delete" aria-label="close" (click)="toggleModal()"></button>
       </header>
       <section class="modal-card-body">
-        <div class="field is-horizontal">
-          <div class="field-label is-normal">
-            <label class="label">Leave your review:</label>
-          </div>
-          <div class="field-body">
-            <div class="field">
-              <p class="control is-expanded">
-                <input class="input" type="number" placeholder="How well did the drink tase?">
-              </p>
-            </div>
-            Taste: <progress class="progress is-primary" value="40" max="100">10%</progress>
-            <div class="field">
-              <p class="control is-expanded">
-                <input class="input" type="number" placeholder="How well priced was the drink?">
-              </p>
-            </div>
-            Price:<progress class="progress is-primary" value="40" max="100">10%</progress>
-            <div class="field">
-              <p class="control is-expanded">
-                <input class="input" type="number" placeholder="How well packaged was the drink?">
-              </p>
-            </div>
-            Look and feel:<progress class="progress is-primary" value="40" max="100">10%</progress>
-          </div>
-        </div>
-
-        <hr>
-
         <div class="field">
-          <div class="field-label is-normal">
-              <label class="label">Upload Image of your drink</label>
-          </div>
-          
-          <div class="file has-name is-right is-info">
+            Taste:<progress class="progress is-primary" value="40" max="100">10%</progress>
+        </div>
+        <div class="field">
+          <input class="input" type="number" placeholder="How did the drink taste?">
+      </div>
+        <div class="field">
+            Price:<progress class="progress is-primary" value="40" max="100">10%</progress>
+        </div>
+        <div class="field">
+          <input class="input" type="number" placeholder="How well priced was the drink?">
+      </div>
+      <div class="field">
+          Look and feel:<progress class="progress is-primary" value="40" max="100">10%</progress>
+      </div>
+      <div class="field">
+        <input class="input" type="number" placeholder="How well packaged was the drink?">
+    </div>
+    <hr>
+    
+      <div class="field">
+        <div class="file is-centered has-name is-info">
             <label class="file-label">
               <input class="file-input" type="file" name="resume">
               <span class="file-cta">
@@ -57,64 +45,45 @@
                 </span>
               </span>
               <span class="file-name">
-                Screen Shot 2017-07-29 at 15.54.25.png
+                Take a picture of the drink you are reviewing
               </span>
             </label>
           </div>
         </div>
+        <hr>
 
-        <div class="field is-horizontal">
-          <div class="field-label is-normal">
-            <label class="label">Added Notes</label>
-          </div>
-          <div class="field-body">
-            <div class="field">
-              <div class="control">
-                <textarea class="textarea" placeholder="Please add any other feelings you have about this drink"></textarea>
-              </div>
-            </div>
-          </div>
+        <div class="field">
+            Look and feel:<textarea class="textarea" placeholder="Please add any other feelings you have about this drink"></textarea>
         </div>
 
-        <div class="field is-horizontal">
-            <div class="field-label is-normal">
-              <label class="label">Reviewer</label>
+        <div class="field">
+          Who reviewed this drink?
+          <div class="control">
+            <div class="select is-fullwidth">
+              <select>
+                <option>Not a member</option>
+                <option>Sam Bowen-Hughes</option>
+                <option>Maher Dulayymi</option>
+              </select>
             </div>
-            <div class="field-body">
-              <div class="field is-narrow">
-                <div class="control">
-                  <div class="select is-fullwidth">
-                    <select>
-                      <option>Please select a name</option>
-                      <option>Sam Bowen-Hughes</option>
-                      <option>Maher Dulayymi</option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          </div>  
+        </div>
 
-
-
-        
-        
         <div class="field is-horizontal">
           <div class="field-label">
             <!-- Left empty for spacing -->
           </div>
           <div class="field-body">
             <div class="field">
-              <div class="control">
-                  <button class="button is-danger" (click)="toggleModal()">Cancel</button>
-                <button class="button is-primary" (click)="toggleModal()">Save changes</button>
-              </div>
+              
             </div>
           </div>
         </div>
       </section>
       <footer class="modal-card-foot footer-background">
-       
+          <!-- <div class="control"> -->
+            <button class="button is-primary is-fullwidth" (click)="toggleModal()">Review Drink</button>
+          <!-- </div> -->
       </footer>
     </div>
   </div>  
