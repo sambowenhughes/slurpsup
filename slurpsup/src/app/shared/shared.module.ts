@@ -5,18 +5,22 @@ import { FooterComponent } from './components/footer/footer.component';
 import { JuiceCardComponent } from './components/juice-card/juice-card.component';
 import { AddReviewModalngComponent } from './components/add-review-modalng/add-review-modalng.component';
 import { MenuComponent } from './components/menu/menu.component';
+import { ReactiveFormsModule, FormsModule } from '../../../node_modules/@angular/forms';
 
 @NgModule({
   declarations: [NavbarComponent, FooterComponent, JuiceCardComponent, AddReviewModalngComponent, MenuComponent],
   imports: [
-    CommonModule
+    CommonModule,
+    ReactiveFormsModule
   ],
   exports:[
     NavbarComponent,
     FooterComponent,
     AddReviewModalngComponent,
     JuiceCardComponent,
-    MenuComponent
+    MenuComponent,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class SharedModule { }

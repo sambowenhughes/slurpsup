@@ -6,85 +6,92 @@
 
 <div class="modal" [ngClass]="{'is-active': modalActive }">
     <div class="modal-background"></div>
-    <div class="modal-card">
-      <header class="modal-card-head header-background">
-        <p class="modal-card-title"></p>
-        <button class="delete" aria-label="close" (click)="toggleModal()"></button>
-      </header>
+     <div class="modal-card">
+        <header class="modal-card-head header-background">
+            <p class="modal-card-title"></p>
+            <button class="delete" aria-label="close" (click)="toggleModal()"></button>
+          </header>
       <section class="modal-card-body">
-        <div class="field">
-            Taste:<progress class="progress is-primary" value="40" max="100">10%</progress>
-        </div>
-        <div class="field">
-          <input class="input" type="number" placeholder="How did the drink taste?">
-      </div>
-        <div class="field">
-            Price:<progress class="progress is-primary" value="40" max="100">10%</progress>
-        </div>
-        <div class="field">
-          <input class="input" type="number" placeholder="How well priced was the drink?">
-      </div>
-      <div class="field">
-          Look and feel:<progress class="progress is-primary" value="40" max="100">10%</progress>
-      </div>
-      <div class="field">
-        <input class="input" type="number" placeholder="How well packaged was the drink?">
+        <form [formGroup]="reviewForm" (ngSubmit)="onSubmit()">
+          <div class="field form-group">
+              Title of drink: 
+              <input 
+                formControlName="name"
+                placeholder="Enter the name of your drink."
+                class="input is-5"
+                type="text">
+          </div>
+          <hr>
+          <div class="field form-group">
+              Taste:<progress class="progress is-primary" value="rangeValues" max="100">10%</progress>
+              <input 
+              class="slider is-fullwidth" 
+              step="1" min="0" max="100" value="50" [(ngModel)]="rangeValues" type="range"
+              formControlName="taste">
+          </div>
+          <div class="field form-group">
+              price:<progress class="progress is-primary" value="40" max="100">10%</progress>
+              <input 
+              class="slider is-fullwidth" 
+              step="1" min="0" max="100" value="50" type="range"
+              formControlName="price">
+          </div>
+          <div class="field form-group">
+              lookAndFeel:<progress class="progress is-primary" value="40" max="100">10%</progress>
+              <input 
+              class="slider is-fullwidth" 
+              step="1" min="0" max="100" value="50" type="range"
+              formControlName="lookAndFeel">
+          </div>
+          <hr>
+          <div class="field">
+              <div class="file is-centered has-name is-info">
+                  <label class="file-label">
+                    <input 
+                    class="file-input" 
+                    type="file" 
+                    name="resume"
+                    formControlName="image">
+                    <span class="file-cta">
+                      <span class="file-icon">
+                        <i class="fas fa-upload"></i>
+                      </span>
+                      <span class="file-label">
+                        Upload Pic
+                      </span>
+                    </span>
+                    <span class="file-name">
+                      Take a picture of the drink you are reviewing
+                    </span>
+                  </label>
+                </div>
+              </div>
+
+              <hr>
+              <div class="field">
+                  Look and feel:<textarea 
+                  formControlName="notes"
+                  class="textarea" placeholder="Please add any other feelings you have about this drink"></textarea>
+              </div>
+
+              <div class="field">
+                  Who reviewed this drink?
+                  <div class="control">
+                    <div class="select is-fullwidth">
+                      <select formControlName="reviewer">
+                        <option>Not a member</option>
+                        <option>Sam Bowen-Hughes</option>
+                        <option>Maher Dulayymi</option>
+                      </select>
+                    </div>
+                  </div>  
+                </div>
+      
+
+            <button class="button button-complete subtitle is-5  is-fullwidth is-success" type="submit" [disabled]="!reviewForm.valid">Submit</button>
+          </form>
+    </section>
     </div>
-    <hr>
     
-      <div class="field">
-        <div class="file is-centered has-name is-info">
-            <label class="file-label">
-              <input class="file-input" type="file" name="resume">
-              <span class="file-cta">
-                <span class="file-icon">
-                  <i class="fas fa-upload"></i>
-                </span>
-                <span class="file-label">
-                  Upload Pic
-                </span>
-              </span>
-              <span class="file-name">
-                Take a picture of the drink you are reviewing
-              </span>
-            </label>
-          </div>
-        </div>
-        <hr>
-
-        <div class="field">
-            Look and feel:<textarea class="textarea" placeholder="Please add any other feelings you have about this drink"></textarea>
-        </div>
-
-        <div class="field">
-          Who reviewed this drink?
-          <div class="control">
-            <div class="select is-fullwidth">
-              <select>
-                <option>Not a member</option>
-                <option>Sam Bowen-Hughes</option>
-                <option>Maher Dulayymi</option>
-              </select>
-            </div>
-          </div>  
-        </div>
-
-        <div class="field is-horizontal">
-          <div class="field-label">
-            <!-- Left empty for spacing -->
-          </div>
-          <div class="field-body">
-            <div class="field">
-              
-            </div>
-          </div>
-        </div>
-      </section>
-      <footer class="modal-card-foot footer-background">
-          <!-- <div class="control"> -->
-            <button class="button is-primary is-fullwidth" (click)="toggleModal()">Review Drink</button>
-          <!-- </div> -->
-      </footer>
-    </div>
   </div>  
 
