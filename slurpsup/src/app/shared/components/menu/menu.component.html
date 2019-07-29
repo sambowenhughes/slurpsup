@@ -25,21 +25,21 @@
           <div class="field form-group">
               Taste:<strong class="is-pulled-right">{{tasteReview}}%</strong><progress [ngClass]="{'is-danger': tasteReview < 30, 'is-warning': tasteReview < 65, 'is-primary' : tasteReview > 65}" class="progress" value="{{tasteReview}}" max="100">10%</progress>
               <input 
-              class="slider is-fullwidth" 
+              class="slider is-fullwidth is-large" 
               step="1" min="0" max="100" value="0" [(ngModel)]="tasteReview" type="range"
               formControlName="taste">
           </div>
           <div class="field form-group">
               price:<strong class="is-pulled-right">{{priceReview}}%</strong> <progress [ngClass]="{'is-danger': priceReview < 30, 'is-warning': priceReview < 65, 'is-primary' : priceReview > 65}" class="progress is-primary" value="{{priceReview}}" max="100">10%</progress>
               <input 
-              class="slider is-fullwidth" 
+              class="slider is-fullwidth is-large" 
               step="1" min="0" max="100" value="0" [(ngModel)]="priceReview" type="range"
               formControlName="price">
           </div>
           <div class="field form-group">
               Look and feel: <strong class="is-pulled-right">{{lookReview}}%</strong><progress [ngClass]="{'is-danger': lookReview < 30, 'is-warning': lookReview < 65, 'is-primary' : lookReview > 65}" class="progress is-warning" value="{{lookReview}}" max="100">10%</progress>
               <input 
-              class="slider is-fullwidth" 
+              class="slider is-fullwidth is-large" 
               step="1" min="0" max="100" value="0" [(ngModel)]="lookReview" type="range"
               formControlName="lookAndFeel">
           </div>
