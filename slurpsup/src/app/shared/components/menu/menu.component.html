@@ -23,24 +23,24 @@
           </div>
           <hr>
           <div class="field form-group">
-              Taste:<progress class="progress is-primary" value="rangeValues" max="100">10%</progress>
+              Taste:<strong class="is-pulled-right">{{tasteReview}}%</strong><progress [ngClass]="{'is-danger': tasteReview < 30, 'is-warning': tasteReview < 65, 'is-primary' : tasteReview > 65}" class="progress" value="{{tasteReview}}" max="100">10%</progress>
               <input 
               class="slider is-fullwidth" 
-              step="1" min="0" max="100" value="50" [(ngModel)]="rangeValues" type="range"
+              step="1" min="0" max="100" value="0" [(ngModel)]="tasteReview" type="range"
               formControlName="taste">
           </div>
           <div class="field form-group">
-              price:<progress class="progress is-primary" value="40" max="100">10%</progress>
+              price:<strong class="is-pulled-right">{{priceReview}}%</strong> <progress [ngClass]="{'is-danger': priceReview < 30, 'is-warning': priceReview < 65, 'is-primary' : priceReview > 65}" class="progress is-primary" value="{{priceReview}}" max="100">10%</progress>
               <input 
               class="slider is-fullwidth" 
-              step="1" min="0" max="100" value="50" type="range"
+              step="1" min="0" max="100" value="0" [(ngModel)]="priceReview" type="range"
               formControlName="price">
           </div>
           <div class="field form-group">
-              lookAndFeel:<progress class="progress is-primary" value="40" max="100">10%</progress>
+              Look and feel: <strong class="is-pulled-right">{{lookReview}}%</strong><progress [ngClass]="{'is-danger': lookReview < 30, 'is-warning': lookReview < 65, 'is-primary' : lookReview > 65}" class="progress is-warning" value="{{lookReview}}" max="100">10%</progress>
               <input 
               class="slider is-fullwidth" 
-              step="1" min="0" max="100" value="50" type="range"
+              step="1" min="0" max="100" value="0" [(ngModel)]="lookReview" type="range"
               formControlName="lookAndFeel">
           </div>
           <hr>
@@ -60,7 +60,7 @@
                         Upload Pic
                       </span>
                     </span>
-                    <span class="file-name">
+                    <span class="file-name" >
                       Take a picture of the drink you are reviewing
                     </span>
                   </label>

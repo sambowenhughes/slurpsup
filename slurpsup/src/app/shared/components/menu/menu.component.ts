@@ -11,6 +11,12 @@ export class MenuComponent implements OnInit {
 
   public modalActive : boolean = true;
 
+  /**
+   * Model values for Juice Review object
+   */
+  public tasteReview : number = 0;  
+  public priceReview : number = 0;  
+  public lookReview : number = 0;  
 
   /**
    * Setup the form modal 
@@ -42,7 +48,7 @@ export class MenuComponent implements OnInit {
   });
 
   public juice : Juice;
-  public rangeValues : number = 40;  
+  
 
   constructor() { }
 
