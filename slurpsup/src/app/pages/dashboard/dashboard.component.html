@@ -2,7 +2,7 @@
 <div>
   <app-menu></app-menu>
   <body>
-    <section class="hero is-info is-small">
+    <section class="hero is-info is-small is-hidden-mobile">
           <div class="hero-body">
             <div class="container has-text-centered">
               <p class="title">
@@ -15,12 +15,23 @@
           </div>
         </section>
         <br>
-        <div class="box cta">
-            <p class="has-text-centered">
-              <span class="tag is-primary">New</span> Here we have modal cards. When
-              you click on them they will open functional modal examples.
-            </p>
+        <div class="container cta">
+            <!-- Desktop view -->
+            <div class="columns">
+              <div class="column is-one-third">
+                  <label class="control">
+                      <input type="text" class="input subtitle is-4" placeholder="Filter...">
+                  </label>
+                </div>
+              <div class="column auto  margin-auto">
+                  <label class="control">
+                    <p class="subtitle is-pulled-right is-hidden-touch">Juice Reviews: <strong>7</strong></p>
+                    <p class="subtitle has-text-centered is-hidden-desktop">Juice Reviews: <strong>7</strong></p>
+                 </label>
+              </div>
         </div>
+        </div>
+        <hr>
     <section class="container">
         <div class="columns is-multiline">
           <div class="column is-4" *ngFor="let juice of juices">

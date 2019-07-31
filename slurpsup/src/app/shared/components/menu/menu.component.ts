@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Juice } from '../../models/Juice';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
@@ -47,6 +46,9 @@ export class MenuComponent implements OnInit {
     ])
   });
 
+  /**
+   * Juice object that will be sent over to DB
+   */
   public juice : Juice;
   
 
@@ -55,17 +57,21 @@ export class MenuComponent implements OnInit {
   ngOnInit() {
   }
 
+  /**
+   * Open and close the modal
+   */
   toggleModal(){
     this.modalActive = !this.modalActive;
   }
 
   /**
-   * Review juice
+   * Review juice - then submit juice for review
    */
   onSubmit(){
     var juice : Juice;
     juice = this.reviewForm.value;
-    console.log(juice.image)
-    // this.closeModal();
+    console.log(juice)
+    console.log(JSON.stringify(juice))
+    this.toggleModal();
   }
 }

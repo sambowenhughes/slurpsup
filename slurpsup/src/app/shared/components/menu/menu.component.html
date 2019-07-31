@@ -7,10 +7,10 @@
 <div class="modal" [ngClass]="{'is-active': modalActive }">
     <div class="modal-background"></div>
      <div class="modal-card">
-        <header class="modal-card-head header-background">
+        <!-- <header class="modal-card-head header-background">
             <p class="modal-card-title"></p>
             <button class="delete" aria-label="close" (click)="toggleModal()"></button>
-          </header>
+          </header> -->
       <section class="modal-card-body">
         <form [formGroup]="reviewForm" (ngSubmit)="onSubmit()">
           <div class="field form-group">
@@ -86,10 +86,15 @@
                     </div>
                   </div>  
                 </div>
-      
-
-            <button class="button button-complete subtitle is-5  is-fullwidth is-success" type="submit" [disabled]="!reviewForm.valid">Submit</button>
-          </form>
+                <div class="columns is-mobile">
+                    <div class="column">
+                    <button class="button is-fullwidth button-complete is-danger ">Cancel</button>
+                    </div>
+                    <div class="column">
+                    <button class="button is-fullwidth button-complete is-success" type="submit" [disabled]="!reviewForm.valid">Submit</button>    
+                  </div>
+                </div>
+              </form>
     </section>
     </div>
     
