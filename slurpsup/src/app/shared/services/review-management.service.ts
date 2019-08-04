@@ -25,6 +25,7 @@ export class ReviewManagementService implements OnInit {
     juice1.price = 30;
     juice1.reviewer = "Sam Bowen-Hughes";
     juice1.taste = 16
+    juice1.image = "../../../../assets/fruitjuice.jpg"
 
     var juice2 = new Juice;
     juice2.name = "Coca Cola";
@@ -33,6 +34,7 @@ export class ReviewManagementService implements OnInit {
     juice2.price = 18;
     juice2.reviewer = "Sam Bowen-Hughes";
     juice2.taste = 109
+    juice2.image = "../../../../assets/coke.png"
 
     this.juices.push(juice1);
     this.juices.push(juice2);
