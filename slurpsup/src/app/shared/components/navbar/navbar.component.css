@@ -17,9 +17,9 @@
   and (max-device-width : 1024px)
   and (-webkit-min-device-pixel-ratio: 1)  { 
   
-  .hero-desktop {
-    /* background-image: url("../../../../assets/mobile-banner.svg");   */
-    background-color: #cccccc; 
+  .hero {
+    background-image: url("../../../../assets/desktop-banner.svg"); 
+    /* background-color: #cccccc;  */
     height: 120px;
     background-size: cover;
   }
