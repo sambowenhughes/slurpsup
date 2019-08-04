@@ -4,3 +4,8 @@ margin: auto }
 .margin-auto{
     margin: auto;
 }
+
+.yellow-banner{
+    background-color: #FFDD57;
+    height: 15px;
+}

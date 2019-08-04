@@ -8,7 +8,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class MenuComponent implements OnInit {
 
-  public modalActive : boolean = true;
+  public modalActive : boolean = false;
 
   /**
    * Model values for Juice Review object
@@ -35,12 +35,10 @@ export class MenuComponent implements OnInit {
     ]),
     image: new FormControl('',[
       Validators.required
-    ])
-    ,
+    ]),
     notes: new FormControl('',[
       Validators.required
-    ])
-    ,
+    ]),
     reviewer: new FormControl('',[
       Validators.required
     ])

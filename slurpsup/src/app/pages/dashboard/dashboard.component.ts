@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Juice } from '../../shared/models/Juice';
+import { ReviewManagementService } from '../../shared/services/review-management.service';
+import { Subscription } from '../../../../node_modules/rxjs';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,17 +10,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  public juices: Array<String> = new Array;
+  public juices: Array<Juice>;
+  public filter: string = "";
+  public subscription: Subscription ;
 
-  constructor() { }
+  constructor(private reviewManagment : ReviewManagementService) { }
 
   ngOnInit() {
-    this.juices.push("Hello");
-    this.juices.push("Hello");
-    this.juices.push("Hello");
-    this.juices.push("Hello");
-    this.juices.push("Hello");
-    this.juices.push("Hello");
+    console.log("JUICES FROM SERVICE: "+this.reviewManagment.juices)
+    this.reviewManagment.getAllReviews();
+    this.juices = this.reviewManagment.juices;
   }
 
 }

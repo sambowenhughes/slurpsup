@@ -1,13 +1,26 @@
 .hero {
-    background-image: url("../../../../assets/banner2.svg"); 
+    background-image: url("../../../../assets/mobile-banner.svg"); 
     background-color: #cccccc; 
     height: 105px;
     background-size: cover;
   }
 
   .hero-desktop {
-    background-image: url("../../../../assets/banner2.svg"); 
+    background-image: url("../../../../assets/desktop-banner.svg"); 
     background-color: #cccccc; 
-    height: 200px;
+    height: 120px;
     background-size: cover;
   }
+
+  @media only screen 
+  and (min-device-width : 768px) 
+  and (max-device-width : 1024px)
+  and (-webkit-min-device-pixel-ratio: 1)  { 
+  
+  .hero-desktop {
+    /* background-image: url("../../../../assets/mobile-banner.svg");   */
+    background-color: #cccccc; 
+    height: 120px;
+    background-size: cover;
+  }
+}

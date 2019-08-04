@@ -7,11 +7,13 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { SharedModule } from './shared/shared.module';
 import { CommonModule } from '../../node_modules/@angular/common';
 import { FormsModule, ReactiveFormsModule } from '../../node_modules/@angular/forms';
+import { StringFilterPipe } from './shared/pipes/string-filter.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DashboardComponent
+    DashboardComponent,
+    StringFilterPipe
   ],
   imports: [
     BrowserModule,

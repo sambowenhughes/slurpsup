@@ -2,19 +2,19 @@
     <div class="card">
       <div class="card-image">
         <figure class="image">
-          <img src="../../../../assets/fruitjuice.jpg" alt="Placeholder image" class="modal-button" data-target="modal-image2">
+          <img src="{{juice.image}}" alt="Placeholder image" class="modal-button" data-target="modal-image2">
         </figure>
       </div>
       <div class="card-content">
         <div class="content">
-          <h4>Innocent Orange</h4>
+          <h4>{{juice.name}}</h4>
           <p>Taste:</p>
-          <progress class="progress is-primary" value="15" max="100">15%</progress>
+          <progress class="progress is-primary" value="{{juice.taste}}" max="100" [ngClass]="{'is-danger': juice.taste < 30, 'is-warning': juice.taste < 65, 'is-primary' : juice.taste > 65}">15%</progress>
           <p>Price:</p>
-          <progress class="progress is-primary" value="40" max="100">10%</progress>
+          <progress class="progress is-primary" value="{{juice.price}}" max="100" [ngClass]="{'is-danger': juice.price < 30, 'is-warning': juice.price < 65, 'is-primary' : juice.price > 65}">10%</progress>
           <p>Look & Feel:</p>
-          <progress class="progress is-primary" value="68" max="100">68%</progress>
-          <p>Purus semper eget duis at tellus at urna condimentum mattis. Non blandit massa enim </p>
+          <progress class="progress is-primary" value="{{juice.lookAndFeel}}" max="100" [ngClass]="{'is-danger': juice.lookAndFeel < 30, 'is-warning': juice.lookAndFeel < 65, 'is-primary' : juice.lookAndFeel > 65}">68%</progress>
+          <p>{{juice.notes}} </p>
 
           <br>
           <span class="button is-link modal-button is-fullwidth is-outlined" data-target="modal-image2">Sam Bowen</span>
