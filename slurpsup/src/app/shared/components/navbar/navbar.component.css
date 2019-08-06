@@ -1,12 +1,12 @@
 .hero {
-    background-image: url("../../../../assets/mobile-banner.svg"); 
+    background-image: url("/assets/mobile-banner.svg"); 
     background-color: #cccccc; 
     height: 105px;
     background-size: cover;
   }
 
   .hero-desktop {
-    background-image: url("../../../../assets/desktop-banner.svg"); 
+    background-image: url("/assets/desktop-banner.svg"); 
     background-color: #cccccc; 
     height: 120px;
     background-size: cover;
@@ -18,8 +18,8 @@
   and (-webkit-min-device-pixel-ratio: 1)  { 
   
   .hero {
-    background-image: url("../../../../assets/desktop-banner.svg"); 
-    /* background-color: #cccccc;  */
+    background-image: url("/assets/desktop-banner.svg"); 
+    background-color: #cccccc; 
     height: 120px;
     background-size: cover;
   }

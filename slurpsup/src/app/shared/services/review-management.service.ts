@@ -40,4 +40,9 @@ export class ReviewManagementService implements OnInit {
     this.juices.push(juice2);
   }
 
+  createReview(juice : Juice){
+    juice.image = "../../../../assets/coke.png"
+    this.juices.push(juice);
+  }
+
 }

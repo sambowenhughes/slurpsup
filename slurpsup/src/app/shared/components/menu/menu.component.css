@@ -16,7 +16,7 @@ svg{
 }
 
 .header-background{
-    background-image: url("../../../../assets/modal-banner.svg"); 
+    background-image: url("/assets/modal-banner.svg"); 
     background-color: #cccccc; 
     background-size: cover;
 }

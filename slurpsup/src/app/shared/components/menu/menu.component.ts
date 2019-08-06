@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Juice } from '../../models/Juice';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { ReviewManagementService } from '../../services/review-management.service';
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
@@ -50,7 +51,7 @@ export class MenuComponent implements OnInit {
   public juice : Juice;
   
 
-  constructor() { }
+  constructor(public reviewManagementService : ReviewManagementService) { }
 
   ngOnInit() {
   }
@@ -68,8 +69,10 @@ export class MenuComponent implements OnInit {
   onSubmit(){
     var juice : Juice;
     juice = this.reviewForm.value;
-    console.log(juice)
-    console.log(JSON.stringify(juice))
     this.toggleModal();
+    if(juice.reviewer  != ""){
+      this.reviewManagementService.createReview(juice);
+      this.reviewForm.reset(); 
+    }
   }
 }
