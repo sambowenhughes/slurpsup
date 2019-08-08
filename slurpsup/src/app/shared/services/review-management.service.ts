@@ -1,16 +1,16 @@
 import { Injectable, OnInit } from '@angular/core';
 import { Juice } from '../models/Juice';
-import { Subject } from '../../../../node_modules/rxjs';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ReviewManagementService implements OnInit {
 
-  public juices: Array<Juice> = new Array;
+  public juices: Array<any> = new Array;
   public reviews : Juice[];
 
-  constructor() { }
+  constructor(private AngularFirestore : AngularFirestore) { }
 
   ngOnInit(){
     console.log("Services being called")
@@ -18,6 +18,15 @@ export class ReviewManagementService implements OnInit {
   }
 
   getAllReviews(){
+
+
+    this.AngularFirestore.collection('/reviews').snapshotChanges()
+    .subscribe(snapshots => {
+      this.juices = snapshots;
+      console.log(this.juices.map)
+    })
+
+
     var juice1 = new Juice;
     juice1.name = "Innocent";
     juice1.lookAndFeel = 79;
@@ -36,8 +45,8 @@ export class ReviewManagementService implements OnInit {
     juice2.taste = 109
     juice2.image = "../../../../assets/coke.png"
 
-    this.juices.push(juice1);
-    this.juices.push(juice2);
+    // this.juices.push(juice1);
+    // this.juices.push(juice2);
   }
 
   createReview(juice : Juice){

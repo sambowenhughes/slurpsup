@@ -14,7 +14,7 @@
           <progress class="progress is-primary" value="{{juice.price}}" max="100" [ngClass]="{'is-danger': juice.price < 30, 'is-warning': juice.price < 65, 'is-primary' : juice.price > 65}">10%</progress>
           <p>Look & Feel:</p>
           <progress class="progress is-primary" value="{{juice.lookAndFeel}}" max="100" [ngClass]="{'is-danger': juice.lookAndFeel < 30, 'is-warning': juice.lookAndFeel < 65, 'is-primary' : juice.lookAndFeel > 65}">68%</progress>
-          <p>{{juice.notes}} </p>
+          <div class="word-wrap">{{juice.notes}} </div>
 
           <br>
           <span class="button is-link modal-button is-fullwidth is-outlined" data-target="modal-image2">Sam Bowen</span>

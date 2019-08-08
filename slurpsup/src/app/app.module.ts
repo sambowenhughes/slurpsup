@@ -6,8 +6,13 @@ import { AppComponent } from './app.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { SharedModule } from './shared/shared.module';
 import { CommonModule } from '../../node_modules/@angular/common';
-import { FormsModule, ReactiveFormsModule } from '../../node_modules/@angular/forms';
+import { FormsModule } from '../../node_modules/@angular/forms';
 import { StringFilterPipe } from './shared/pipes/string-filter.pipe';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabaseModule, AngularFireDatabase } from '@angular/fire/database';
+import { environment } from '../environments/environment';
+import { AngularFirestore } from '../../node_modules/@angular/fire/firestore';
+
 
 @NgModule({
   declarations: [
@@ -20,9 +25,11 @@ import { StringFilterPipe } from './shared/pipes/string-filter.pipe';
     AppRoutingModule,
     SharedModule,
     CommonModule,
-    FormsModule
+    FormsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig, 'slurpsup'),
+    AngularFireDatabaseModule
   ],
-  providers: [],
+  providers: [AngularFirestore, AngularFireDatabase],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
