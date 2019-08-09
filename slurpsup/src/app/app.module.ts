@@ -11,7 +11,7 @@ import { StringFilterPipe } from './shared/pipes/string-filter.pipe';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule, AngularFireDatabase } from '@angular/fire/database';
 import { environment } from '../environments/environment';
-import { AngularFirestore } from '../../node_modules/@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreModule } from '../../node_modules/@angular/fire/firestore';
 
 
 @NgModule({
@@ -27,6 +27,7 @@ import { AngularFirestore } from '../../node_modules/@angular/fire/firestore';
     CommonModule,
     FormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig, 'slurpsup'),
+    AngularFirestoreModule,
     AngularFireDatabaseModule
   ],
   providers: [AngularFirestore, AngularFireDatabase],

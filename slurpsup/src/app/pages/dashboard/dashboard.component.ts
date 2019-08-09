@@ -14,12 +14,14 @@ export class DashboardComponent implements OnInit {
   public filter: string = "";
   public subscription: Subscription ;
 
-  constructor(private reviewManagment : ReviewManagementService) { }
+  constructor(private reviewManagmentService : ReviewManagementService) { }
 
   ngOnInit() {
-    console.log("JUICES FROM SERVICE: "+this.reviewManagment.juices)
-    this.reviewManagment.getAllReviews();
-    this.juices = this.reviewManagment.juices;
+   this.reviewManagmentService.updateGuests();
+
+   this.subscription = this.reviewManagmentService.juices.subscribe((juices) => {
+    this.juices = juices;
+  });
   }
 
 }
