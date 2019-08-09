@@ -12,6 +12,7 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule, AngularFireDatabase } from '@angular/fire/database';
 import { environment } from '../environments/environment';
 import { AngularFirestore, AngularFirestoreModule } from '../../node_modules/@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { AngularFirestore, AngularFirestoreModule } from '../../node_modules/@an
     FormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig, 'slurpsup'),
     AngularFirestoreModule,
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    AngularFireStorageModule
   ],
   providers: [AngularFirestore, AngularFireDatabase],
   bootstrap: [AppComponent]

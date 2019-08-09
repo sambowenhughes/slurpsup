@@ -6,6 +6,7 @@ export class Juice {
     image : String
     notes: String
     reviewer: String
+    dateCreated: String
 }
   
   

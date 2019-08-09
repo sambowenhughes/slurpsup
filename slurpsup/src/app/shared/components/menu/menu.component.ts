@@ -16,7 +16,20 @@ export class MenuComponent implements OnInit {
    */
   public tasteReview : number = 0;  
   public priceReview : number = 0;  
-  public lookReview : number = 0;  
+  public lookReview : number = 0; 
+  
+  fileToUpload: File = null;
+
+  handleFileInput(files: FileList) {
+    console.log("Being hit")
+    this.fileToUpload = files.item(0);
+
+    this.reviewManagementService.uploadFile(this.fileToUpload);
+  }
+
+  uploadFileToActivity() {
+    
+  }
 
   /**
    * Setup the form modal 
@@ -63,12 +76,17 @@ export class MenuComponent implements OnInit {
     this.modalActive = !this.modalActive;
   }
 
+  uploader = document.getElementById('uploader');
+  fileButton = document.getElementById('fileButton');
+
+
   /**
    * Review juice - then submit juice for review
    */
   onSubmit(){
     var juice : Juice;
     juice = this.reviewForm.value;
+
     this.toggleModal();
     if(juice.reviewer  != ""){
       this.reviewManagementService.createReview(juice);
