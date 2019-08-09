@@ -14,19 +14,19 @@ export class ReviewManagementService implements OnInit {
   private juiceSubject: Subject<Juice[]> = new Subject<Juice[]>();
   public juices = this.juiceSubject.asObservable();
 
-  constructor(private AngularFirestore : AngularFirestore) { }
+  constructor(private firestore : AngularFirestore) { }
 
   ngOnInit(){
     this.updateGuests();
   }
 
   getAllGuests(){
-    return this.AngularFirestore.collection('/reviews').valueChanges();
+    return this.firestore.collection('/reviews').valueChanges();
   }
 
   createReview(juice : Juice){
     juice.image = "../../../../assets/coke.png"
-    // Write to DB
+    this.firestore.collection('reviews').add(juice);
   }
 
 
