@@ -4,6 +4,8 @@ export class Juice {
     price : Number
     lookAndFeel : Number
     image : String
+    imageFile: File
+    imageDownloadUrl: String
     notes: String
     reviewer: String
     dateCreated: String

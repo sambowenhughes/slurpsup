@@ -3,18 +3,15 @@ import { Juice } from '../models/Juice';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Subject } from '../../../../node_modules/rxjs';
 import { AngularFireStorage, AngularFireUploadTask } from '../../../../node_modules/@angular/fire/storage';
-import { tap, finalize } from 'rxjs/operators'; 
-import { TagPlaceholder } from '../../../../node_modules/@angular/compiler/src/i18n/i18n_ast';
-import { async } from '../../../../node_modules/@types/q';
+import { finalize } from 'rxjs/operators'; 
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class ReviewManagementService implements OnInit {
 
-  // public juices: Array<any> = new Array;
   public reviews : Juice[];
-
   private juiceSubject: Subject<Juice[]> = new Subject<Juice[]>();
   public juices = this.juiceSubject.asObservable();
 
@@ -30,12 +27,6 @@ export class ReviewManagementService implements OnInit {
     return this.firebaseDb.collection('/reviews').valueChanges();
   }
 
-  createReview(juice : Juice){
-    juice.image = "../../../../assets/coke.png"
-    this.firebaseDb.collection('reviews').add(juice);
-  }
-
-
   updateGuests() {
     this.getAllGuests().subscribe((result : Juice[]) => {
       this.reviews = result
@@ -43,23 +34,22 @@ export class ReviewManagementService implements OnInit {
     });
   }
 
-  uploadFile(fileToUpload){
-    
-    const filepath = `juices/${Date.now()}_${fileToUpload.name}`;
+  createReview(juice){
+    const filepath = `juices/${Date.now()}_${juice.imageFile.name}`;
     const ref = this.firebaseStorage.ref(filepath);
 
-    this.task = this.firebaseStorage.upload(filepath, fileToUpload)
+    this.task = this.firebaseStorage.upload(filepath, juice.imageFile)
 
-    var percentage = this.task.percentageChanges();
-    var snapshot = this.task.snapshotChanges().pipe(
-      tap(console.log),
-      finalize( async() => {
-        var downloadUrl = await ref.getDownloadURL().toPromise();
-        this.firebaseDb.collection('files').add({
-          downloadUrl: downloadUrl, filepath 
-        })
-      })
-    );
+    // var percentage = this.task.percentageChanges();
+    console.log("Create Review being vall")
+    this.task.snapshotChanges().pipe(
+    finalize( async() => { 
+      console.log("Being called");
+      var downloadUrl = await ref.getDownloadURL().toPromise();
+      juice.imageDownloadUrl = downloadUrl;
+      juice.dateCreated = Date.now();
+      this.firebaseDb.collection('reviews').add(juice);
+    }));
   }
 
 }
