@@ -3,7 +3,7 @@ import { Juice } from '../models/Juice';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Subject } from '../../../../node_modules/rxjs';
 import { AngularFireStorage, AngularFireUploadTask } from '../../../../node_modules/@angular/fire/storage';
-import { finalize } from 'rxjs/operators'; 
+import { finalize, tap } from 'rxjs/operators'; 
 
 
 @Injectable({
@@ -40,18 +40,22 @@ export class ReviewManagementService implements OnInit {
 
     this.task = this.firebaseStorage.upload(filepath, juice.imageFile)
 
-    // var percentage = this.task.percentageChanges();
-    console.log("Create Review being vall")
     this.task.snapshotChanges().pipe(
-    finalize( async() => { 
-      console.log("Being called");
-      var downloadUrl = await ref.getDownloadURL().toPromise();
-      juice.imageDownloadUrl = downloadUrl;
-      juice.dateCreated = Date.now();
-      this.firebaseDb.collection('reviews').add(juice);
-    }));
+      tap(snap => {
+        if(snap.bytesTransferred === snap.totalBytes){
+          var p = this.firebaseStorage.ref(filepath).getDownloadURL();
+        }   
+      })
+   ).subscribe(result => {
+     if(result.metadata != null){
+       var savedFilePath = result.metadata.fullPath;
+       juice.imageDownloadUrl = savedFilePath;
+       juice.imageFile = savedFilePath;
+       console.log(JSON.stringify(juice))
+       this.firebaseDb.collection('reviews').add(juice);
+     }
+   })
   }
-
 }
 
  
