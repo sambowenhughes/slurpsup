@@ -4,6 +4,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { Subject } from '../../../../node_modules/rxjs';
 import { AngularFireStorage, AngularFireUploadTask } from '../../../../node_modules/@angular/fire/storage';
 import { finalize, tap } from 'rxjs/operators'; 
+import { firestore } from '../../../../node_modules/firebase';
 
 
 @Injectable({
@@ -29,7 +30,29 @@ export class ReviewManagementService implements OnInit {
 
   updateGuests() {
     this.getAllGuests().subscribe((result : Juice[]) => {
-      this.reviews = result
+      
+
+      result.forEach(review => {
+        var image = review.imageDownloadUrl;
+        if(image !== null){
+          var ref = this.firebaseStorage.ref(image.toString())
+          var url = ref.getDownloadURL().subscribe(result =>{
+            console.log(result)
+          review.image = result; 
+          });
+        }
+      });
+
+
+      this.reviews = result;
+
+
+      // var first = result[3];
+      // var image = first.imageDownloadUrl;
+      // var ref = this.firebaseStorage.ref(image.toString())
+      // var url = ref.getDownloadURL().subscribe(result =>{
+      //   console.log(result)
+      // });
       this.juiceSubject.next(this.reviews);
     });
   }
@@ -51,7 +74,6 @@ export class ReviewManagementService implements OnInit {
        var savedFilePath = result.metadata.fullPath;
        juice.imageDownloadUrl = savedFilePath;
        juice.imageFile = savedFilePath;
-       console.log(JSON.stringify(juice))
        this.firebaseDb.collection('reviews').add(juice);
      }
    })

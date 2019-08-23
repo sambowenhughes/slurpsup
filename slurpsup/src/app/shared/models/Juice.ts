@@ -8,6 +8,7 @@ export class Juice {
     notes: String
     reviewer: String
     dateCreated: String
+    image: any
 }
   
   
