@@ -18,6 +18,8 @@ export class MenuComponent implements OnInit {
   public priceReview : number = 0;  
   public lookReview : number = 0; 
 
+  public imageName = "Please upload an image"
+
   /**
    * Setup the form modal 
    */
@@ -86,6 +88,7 @@ export class MenuComponent implements OnInit {
    * @param files 
    */
   handleFileInput(files: FileList) {
+    this.imageName = files.item(0).name
     this.imageOfJuice =  files.item(0);
   }
 }
