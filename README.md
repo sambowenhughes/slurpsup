@@ -11,7 +11,7 @@ These instructions will get you a copy of the project up and running on your loc
 ## Demo
 
 <div>
-    <img src="demo.gif" width="300" height="600" />
+    <img src="demo.gif" width="300" height="550" />
 </div>
 
 
