@@ -1,6 +1,6 @@
 # Slurpsup
 
-Simple web application written in Angular 6 used to review juices. This project is very much a work in progress (So much needs fixing and cleaning up) but feel free to pull down the code and play around. 
+Simple fun little web application written in Angular 6 used to review juices. Feel free to pull down the code and play around. 
 
 In order to get the application running successfully you will need to create a firebase datastore. Update the environment.ts file with your firebase config and the app should work as normal.
 
